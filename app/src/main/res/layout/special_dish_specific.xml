@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/special_dish_specific_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#00a2e9"
+        android:gravity="center"
+        android:text="正在刷新"
+        android:textColor="#fff" />
+
+    <EditText
+        android:id="@+id/special_dish_specific_ed1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/special_dish_specific_title"
+        android:gravity="center"
+        android:hint="请输入更改（菜名或者商家信息）"
+        android:textColor="#00a2e9"
+        android:textColorHint="#00a2e9" />
+
+    <EditText
+        android:id="@+id/special_dish_specific_ed2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/special_dish_specific_ed1"
+        android:gravity="center"
+        android:hint="请输入价格"
+        android:inputType="number"
+        android:textColor="#00a2e9"
+        android:textColorHint="#00a2e9" />
+
+    <EditText
+        android:id="@+id/special_dish_specific_ed3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/special_dish_specific_ed2"
+        android:gravity="center"
+        android:hint="请输入详情"
+        android:textColor="#00a2e9"
+        android:textColorHint="#00a2e9" />
+
+    <Button
+        android:id="@+id/special_dish_specific_btn1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/special_dish_specific_ed3"
+        android:background="#00a2e9"
+        android:gravity="center"
+        android:text="仅更改信息并返回"
+        android:textColor="#fff" />
+
+    <Button
+        android:id="@+id/special_dish_specific_btn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/special_dish_specific_btn1"
+        android:layout_marginTop="5dp"
+        android:background="#00a2e9"
+        android:gravity="center"
+        android:text="仅更改状态并返回"
+        android:textColor="#fff" />
+
+    <Button
+        android:id="@+id/special_dish_specific_btn3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/special_dish_specific_btn2"
+        android:layout_marginTop="5dp"
+        android:background="#00a2e9"
+        android:gravity="center"
+        android:text="更改状态和信息并返回"
+        android:textColor="#fff" />
+</RelativeLayout>

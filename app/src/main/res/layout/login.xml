@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/applogo" />
+
+        <EditText
+            android:id="@+id/vendorName1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:hint="请输入用户名"
+            android:textColor="#00a2e9"
+            android:textColorHint="#00a2e9" />
+
+        <EditText
+            android:id="@+id/vendorPass1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/vendorName1"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:textColor="#00a2e9"
+            android:textColorHint="#00a2e9" />
+
+        <Button
+            android:id="@+id/loginbtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/vendorPass1"
+            android:layout_margin="5dp"
+            android:background="#00a2e9"
+            android:text="登陆"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/modifybtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/loginbtn"
+            android:layout_margin="5dp"
+            android:background="#00a2e9"
+            android:text="修改商家信息"
+            android:textColor="#fff" />
+    </RelativeLayout>
+</LinearLayout>

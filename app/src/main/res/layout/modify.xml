@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/revendorName1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:hint="请输入新用户名"
+            android:textColor="#00a2e9"
+            android:textColorHint="#00a2e9" />
+
+        <EditText
+            android:id="@+id/revendorPass1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/revendorName1"
+            android:gravity="center"
+            android:hint="请输入新密码"
+            android:inputType="textPassword"
+            android:textColor="#00a2e9"
+            android:textColorHint="#00a2e9" />
+
+        <EditText
+            android:id="@+id/revendorPhone1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/revendorPass1"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:hint="请输入新电话"
+            android:inputType="textPassword"
+            android:textColor="#00a2e9"
+            android:textColorHint="#00a2e9" />
+
+        <Button
+            android:id="@+id/modifyconfirmbtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/revendorPhone1"
+            android:layout_margin="5dp"
+            android:background="#00a2e9"
+            android:text="确认修改"
+            android:textColor="#fff" />
+    </RelativeLayout>
+
+</LinearLayout>

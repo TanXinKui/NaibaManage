@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/specific_oderRLo1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#00a2e9">
+
+            <Button
+                android:id="@+id/colseCurrentPage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="#00a2e9"
+                android:text="返回"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/showCurrentDesk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="#00a2e9"
+                android:text="1号桌订单详情"
+                android:textColor="#fff"
+                android:textSize="20dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/specific_oderRLo2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/specific_oderRLo1"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用户名：正在刷新..."
+                android:textColor="#00a2e9" />
+
+            <TextView
+                android:id="@+id/oderTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/userName"
+                android:layout_marginTop="5dp"
+                android:text="下单时间：正在刷新..."
+                android:textColor="#00a2e9" />
+
+            <TextView
+                android:id="@+id/oderTittle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/oderTime"
+                android:layout_marginTop="5dp"
+                android:text="所点菜单"
+                android:textColor="#00a2e9" />
+
+            <ListView
+                android:id="@+id/specific_oderlist"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:layout_below="@id/oderTittle">
+
+            </ListView>
+
+            <TextView
+                android:id="@+id/totalPay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/specific_oderlist"
+                android:text="小计：正在刷新"
+                android:textColor="#000"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/clientNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/specific_oderlist"
+                android:layout_marginRight="25dp"
+                android:layout_toLeftOf="@+id/totalPay"
+                android:text="人数："
+                android:textColor="#000"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/comfirmAccept"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/clientNum"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:layout_marginTop="5dp"
+                android:background="#00a2e9"
+                android:text="确认接单"
+                android:textColor="#fff" />
+
+            <Button
+                android:id="@+id/finishAccept"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/refuseAccept"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:background="#00a2e9"
+                android:text="完成接单"
+                android:textColor="#fff" />
+
+            <Button
+                android:id="@+id/refuseAccept"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/comfirmAccept"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:background="#00a2e9"
+                android:text="拒绝接单"
+                android:textColor="#fff" />
+
+            <Button
+                android:id="@+id/contactClient"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/finishAccept"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:layout_marginLeft="5dp"
+                android:background="#00a2e9"
+                android:text="联系顾客"
+                android:textColor="#fff" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/dishName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#00a2e9"
+        android:gravity="center"
+        android:text="当前菜名:"
+        android:textColor="#fff" />
+
+    <TextView
+        android:id="@+id/dishstate"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="更改为："
+        android:textColor="#00a2e9" />
+
+    <Button
+        android:id="@+id/confirmChange"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        android:background="#00a2e9"
+        android:text="确定"
+        android:textColor="#fff" />
+
+</LinearLayout>

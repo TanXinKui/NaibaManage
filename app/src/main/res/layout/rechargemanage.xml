@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/userName"
+                android:layout_width="100dp"
+                android:layout_height="25dp"
+                android:layout_margin="10dp"
+                android:text="用户名"
+                android:textColor="#00a2e9"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/userName1"
+                android:layout_width="200dp"
+                android:layout_height="25dp"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:background="#00a2e9"
+                android:focusable="auto"
+                android:hint="输入用户名"
+                android:textColorHint="#fff" />
+
+            <TextView
+                android:id="@+id/addBanlance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/userName"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:text="请选择充值金额"
+                android:textColor="#00a2e9"
+                android:textSize="20dp" />
+
+            <RadioGroup
+                android:id="@+id/rBtnGrp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addBanlance"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/RBtn0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20￥" />
+
+                <RadioButton
+                    android:id="@+id/RBtn1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="50￥" />
+
+                <RadioButton
+                    android:id="@+id/RBtn2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="100￥" />
+
+                <RadioButton
+                    android:id="@+id/RBtn3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="200￥" />
+
+                <RadioButton
+                    android:id="@+id/RBtn4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1000￥" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/confirmRecharge"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/rBtnGrp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                android:background="#00a2e9"
+                android:text="确认充值"
+                android:textColor="#fff" />
+
+            <Button
+                android:id="@+id/exitbtn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/confirmRecharge"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                android:background="#00a2e9"
+                android:text="退出登陆"
+                android:textColor="#fff" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rechargemanage_0_2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:background="#FFF"
+            android:gravity="bottom">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/recharge_bottom_left"
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/desks1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/recharge_bottom_mid"
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/menu" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/recharge_bottom_right"
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/charge" />
+
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>
