@@ -1,4 +1,4 @@
-# Naiba(奶爸商家版) <img src="https://github.com/TanXinKui/Naiba/raw/master/app/src/main/res/drawable/applogo.png" width="25" >
+# Naiba(奶爸商家版) <img src="https://github.com/TanXinKui/NaibaManage/raw/master/app/src/main/res/drawable/applogo.png" width="30" >
 ![image](https://img.shields.io/badge/Naiba-商家端-brightgreen.svg?style=plastic)
 ![image](https://img.shields.io/badge/Naiba-v1.0.0-blue.svg?style=plastic)
 # 项目介绍：
