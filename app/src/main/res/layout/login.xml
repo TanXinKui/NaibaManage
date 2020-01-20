@@ -23,6 +23,7 @@
             android:layout_margin="5dp"
             android:gravity="center"
             android:hint="请输入用户名"
+            android:background="@drawable/editext_style"
             android:textColor="#00a2e9"
             android:textColorHint="#00a2e9" />
 
@@ -35,6 +36,7 @@
             android:gravity="center"
             android:hint="请输入密码"
             android:inputType="textPassword"
+            android:background="@drawable/editext_style"
             android:textColor="#00a2e9"
             android:textColorHint="#00a2e9" />
 
@@ -42,20 +44,24 @@
             android:id="@+id/loginbtn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:layout_below="@id/vendorPass1"
             android:layout_margin="5dp"
-            android:background="#00a2e9"
+            android:background="@drawable/btn_style"
             android:text="登陆"
             android:textColor="#fff" />
 
         <Button
             android:id="@+id/modifybtn"
             android:layout_width="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:layout_height="50dp"
             android:layout_below="@id/loginbtn"
             android:layout_margin="5dp"
-            android:background="#00a2e9"
+            android:background="@drawable/btn_style2"
             android:text="修改商家信息"
-            android:textColor="#fff" />
+            android:textColor="#00a2e9" />
     </RelativeLayout>
 </LinearLayout>

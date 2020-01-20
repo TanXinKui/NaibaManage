@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:name=".network.BaseApplication"
@@ -13,20 +14,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".user.UserLogin">
+        <activity android:name=".activity.MQTTActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity"></activity>
-        <activity android:name=".activity.DishManage"></activity>
-        <activity android:name=".user.UserModify"></activity>
-        <activity android:name=".activity.DishStateDetail"></activity>
-        <activity android:name=".activity.RechargeManage"></activity>
-        <activity android:name=".activity.MainOderSpecific"></activity>
-        <activity android:name=".activity.DishSpecialListDetail"></activity>
-        <activity android:name=".activity.DishSpecial"></activity>
+        <activity android:name=".user.UserLogin"></activity>
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.DishManage" />
+        <activity android:name=".user.UserModify" />
+        <activity android:name=".activity.DishStateDetail" />
+        <activity android:name=".activity.RechargeManage" />
+        <activity android:name=".activity.MainOderSpecific" />
+        <activity android:name=".activity.DishSpecialListDetail" />
+        <activity android:name=".activity.DishSpecial" />
+
         <service
             android:name=".service.SqlQueryService"
             android:exported="false">
@@ -34,6 +38,7 @@
                 <action android:name="cn.xinxing.service" />
             </intent-filter>
         </service>
+        <service android:name=".mqtt.MQTTService" />
     </application>
 
 </manifest>
