@@ -1,4 +1,8 @@
 package www.xinkui.com.restaurant.mqtt;
+/**
+*@author T O N X O K
+*@date 2020/2/1 20:27
+*/
 public interface MQTTListener {
     /**
      * connect the server successfully

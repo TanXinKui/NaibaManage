@@ -15,6 +15,8 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -32,6 +34,8 @@ import io.reactivex.disposables.Disposable;
 import www.xinkui.com.restaurant.R;
 import www.xinkui.com.restaurant.bean.Recharge;
 import www.xinkui.com.restaurant.bean.TranscationDetail;
+import www.xinkui.com.restaurant.mqtt.MQTTObject;
+import www.xinkui.com.restaurant.mqtt.MQTTService;
 import www.xinkui.com.restaurant.network.NetWorkManager;
 import www.xinkui.com.restaurant.network.exception.ApiException;
 import www.xinkui.com.restaurant.network.response.ResponseTransformer;
@@ -253,6 +257,8 @@ public class MainOderSpecific extends Activity {
                 .compose(ResponseTransformer.handleResult())
                 .compose(SchedulerProvider.getInstance().applySchedulers())
                 .subscribe();
+        MQTTObject object=new MQTTObject(Util.MQTT_TOPIC,"orderResponse");
+        MQTTService.getMqttConfig().sendMessage(Util.MQTT_TOPIC,new Gson().toJson(object),0);
     }
 
     public void sqlRefuse() {
@@ -260,6 +266,8 @@ public class MainOderSpecific extends Activity {
                 .compose(ResponseTransformer.handleResult())
                 .compose(SchedulerProvider.getInstance().applySchedulers())
                 .subscribe();
+        MQTTObject object=new MQTTObject(Util.MQTT_TOPIC,"orderResponse");
+        MQTTService.getMqttConfig().sendMessage(Util.MQTT_TOPIC,new Gson().toJson(object),0);
        withdrawBalance(new Recharge(currentUser,totalCost));
     }
     private void withdrawBalance(Recharge recharge) {
@@ -294,6 +302,8 @@ public class MainOderSpecific extends Activity {
                 .compose(ResponseTransformer.handleResult())
                 .compose(SchedulerProvider.getInstance().applySchedulers())
                 .subscribe();
+        MQTTObject object=new MQTTObject(Util.MQTT_TOPIC,"orderResponse");
+        MQTTService.getMqttConfig().sendMessage(Util.MQTT_TOPIC,new Gson().toJson(object),0);
     }
 
     private String logTimeOfDay(long millis) {

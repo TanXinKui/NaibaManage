@@ -16,7 +16,33 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import www.xinkui.com.restaurant.util.Util;
 
-
+/**
+*@author T O N X O K
+*@date 2020/2/1 20:49
+** all the elements notices are as below:
+ * // * means object // @ means originally defined by official
+ * // ( means callback //  -> means use  // <- means be used // () means method
+ * // {} means contains  // (()) means construct METHOD // # means defined by myself
+ * // the numbers point out the order they are defined.
+ * // MQTTConfig(()) set 1.(#
+ *
+ * 0.handler * # -> 1.( #
+ *
+ * 1.mqttlistener ( #   <- 4.(@  5.(@
+ * 4.IMqttActionListener ( @
+ * 5.mqttCallback  ( @
+ *
+ * 2.mqttasyncclient * @
+ * 7.connectOptions * @
+ *
+ * 3.reconnect count int #
+ *
+ * 6..connect() ->2.* @ and set 4.( @  5.( @  7.*@
+ * 8..disconnect() ->2.* @
+ * 9..reconnect(){6..8..}
+ * 10..sendMessage()->2.* @
+ * 11..subscribeTopic()->2.* @
+*/
 public class MQTTConfig {
     private MqttAsyncClient mqttClient = null;
     private MQTTListener mqttListener;
@@ -71,7 +97,7 @@ public class MQTTConfig {
             mHandler.sendMessage(message);
         }
     };
-    private MqttCallback mqttCallback = new MqttCallback() {
+        private MqttCallback mqttCallback = new MqttCallback() {
         @Override
         public void connectionLost(Throwable cause) {
             Message message = new Message();

@@ -5,6 +5,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,31 +14,26 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import www.xinkui.com.restaurant.R;
 import www.xinkui.com.restaurant.adapter.ListViewButtonAdapter;
 import www.xinkui.com.restaurant.bean.DishState;
+import www.xinkui.com.restaurant.mqtt.MQTTListener;
+import www.xinkui.com.restaurant.mqtt.MQTTObject;
+import www.xinkui.com.restaurant.mqtt.MQTTService;
 import www.xinkui.com.restaurant.network.NetWorkManager;
 import www.xinkui.com.restaurant.network.response.ResponseTransformer;
 import www.xinkui.com.restaurant.network.schedulers.SchedulerProvider;
-import www.xinkui.com.restaurant.service.SqlQueryService;
 import www.xinkui.com.restaurant.util.Util;
 
-import static java.lang.Thread.sleep;
 
-public class MainActivity extends ListActivity {
+public class MainActivity extends ListActivity implements MQTTListener {
     int desks[] = new int[6];
     private long firstTime = 0;
     int confirmstate[] = new int[6];
@@ -46,7 +42,7 @@ public class MainActivity extends ListActivity {
     Handler handlerrefreshList;
     Button btnmid, btnright;
     Button btn1;
-    SqlQueryService sql1;
+//    SqlQueryService sql1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,10 +50,21 @@ public class MainActivity extends ListActivity {
         setContentView(R.layout.main);
         initViews();
         //启动service后台刷新
-        sql1 = new SqlQueryService();
-        sql1.onStart(new Intent(), 1);
+//        sql1 = new SqlQueryService();
+//        sql1.onStart(new Intent(), 1);
         sqlSearch();
-        initRunnable();
+//        initRunnable();
+        MQTTService.addMqttListener(this);
+        //connectMQTT service
+        connectMQTT();
+    }
+    private void connectMQTT(){
+        Intent intent = new Intent(MainActivity.this, MQTTService.class);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(intent);
+        } else {
+            startService(intent);
+        }
     }
 
     private void initViews() {
@@ -84,41 +91,15 @@ public class MainActivity extends ListActivity {
         }
     }
 
-    private void initRunnable() {
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                for (int j = 0; j < 6; j++) {
-                    int k = j + 1;
-                    //注意判断是否接收到了数据
-                    if (sql1.getDishStatesList().size() > 0) {
-                        if (sql1.getDishStatesList().get(j).getConfirmState() != 2) {
-                            switch (sql1.getDishStatesList().get(j).getPayState() + sql1.getDishStatesList().get(j).getState()) {
-                                case 0:
-                                    Log.v("yzy", k + "号桌无订单");
-                                    break;
-                                case 1:
-                                    if (touchstate[j]) {
-                                        myshow(++messageNum, k, j);
-                                    }
-                                    break;
-                                case 2:
-                                    Log.v("yzy", k + "号桌订单已经查看");
-                                    break;
-                                case 3:
-                                    Log.v("yzy", k + "号桌订单已经查看");
-                                    break;
-                                default:
-                                    break;
-                            }
-                        }
-                    }
-
-                }
-            }
-        }, 5000, 1000);
-    }
+//    private void initRunnable() {
+//        Timer timer = new Timer();
+//        timer.schedule(new TimerTask() {
+//            @Override
+//            public void run() {
+//
+//            }
+//        }, 5000, 1000);
+//    }
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
@@ -242,6 +223,7 @@ public class MainActivity extends ListActivity {
                             desks[i] = dishStates.get(i).getPayState();
                             confirmstate[i] = dishStates.get(i).getConfirmState();
                         }
+                        showMsg(dishStates);
                     }
 
                     @Override
@@ -255,5 +237,68 @@ public class MainActivity extends ListActivity {
                         btn1.setText("点击刷新桌面信息");
                     }
                 });
+    }
+    private void showMsg(ArrayList<DishState> dishStates){
+        for (int j = 0; j < 6; j++) {
+            int k = j + 1;
+            //注意判断是否接收到了数据
+            if (dishStates.size() > 0) {
+                if (dishStates.get(j).getConfirmState() != 2) {
+                    switch (dishStates.get(j).getPayState() + dishStates.get(j).getState()) {
+                        case 0:
+                            Log.v("yzy", k + "号桌无订单");
+                            break;
+                        case 1:
+                            if (touchstate[j]) {
+                                myshow(++messageNum, k, j);
+                            }
+                            break;
+                        case 2:
+                            Log.v("yzy", k + "号桌订单已经查看");
+                            break;
+                        case 3:
+                            Log.v("yzy", k + "号桌订单已经查看");
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+
+        }
+    }
+
+    @Override
+    public void onConnected() {
+
+    }
+
+    @Override
+    public void onLost() {
+
+    }
+
+    @Override
+    public void onFailed() {
+
+    }
+
+    @Override
+    public void onReceived(String topic, String message) {
+        if(topic.equals(Util.MQTT_TOPIC)){
+            Util.Loge(message);
+//            Type type = new TypeToken<ArrayList<DishState>>(){}.getType();
+//            ArrayList<DishState> list = new Gson().fromJson(message,type);
+
+            MQTTObject mqttObject = new Gson().fromJson(message,MQTTObject.class);
+            if(mqttObject.getMessage().equals("orderRequest")){
+                sqlSearch();
+            }
+        }
+    }
+
+    @Override
+    public void onSentSuccessfully() {
+        Util.Loge("sentSuccessfully");
     }
 }

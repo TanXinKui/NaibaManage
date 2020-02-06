@@ -23,6 +23,35 @@ import www.xinkui.com.restaurant.util.Util;
 /**
 *@author T O N X O K
 *@date 2020/1/20 17:44
+* all the elements notices are as below:
+* // * means object // @ means originally defined by official
+* // ( means callback //  -> means use  // <- means be used // () means method
+* // {} means contains  // (()) means construct METHOD // # means defined by myself
+* // the numbers point out the order they are defined.
+1.MESSAGE_CHECK int #
+2.mMqttListenerList  * List<(#> #
+3.timer  * #
+4.handler * # ->7.*# 1.*#
+5.CheckMqttThread ! TimerTask # ->4.*# 1.*#
+6.mqttThread * # ->5.!#
+7.mqttConfig * #
+
+8..onCreate() @ ->super() 7.*#
+9..onStartCommand() @ ->super() 6.*# 3.*#
+
+10..getNotification() Noticification #
+11..addMqttListener() # ->2.*#
+12..removeMqttListener() # ->2.*#
+13..getMqttConfig() MQTTConfig # ->7.*#
+
+14..onDestroy() @->super()
+15..onBinder() IBinder @
+
+16..onConnected() (# ->7.*# 2.*#
+17..onLost() (# ->7.*# 2.*#
+18..onFailed() (# ->2.*#
+19..onReceived() (# ->2.*#
+20..onSentSuccessfully() (# ->2.*#
 */
 public class MQTTService extends Service implements MQTTListener{
     private static final int MESSAGE_CHECK=0;
