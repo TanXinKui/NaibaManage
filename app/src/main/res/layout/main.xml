@@ -12,40 +12,43 @@
             android:id="@+id/mainListRLo2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
             <RelativeLayout
                 android:id="@+id/refresh"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="#00a2e9">
-
                 <Button
                     android:id="@+id/btnrefresh"
                     android:layout_width="300dp"
                     android:layout_height="30dp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
-                    android:background="#fff"
+                    android:background="@drawable/pswback2"
                     android:onClick="refreshList"
-                    android:text="点击刷新桌面信息" />
+                    android:text="点击或下拉刷新桌面信息" />
             </RelativeLayout>
+        </RelativeLayout>
 
-            <TextView
-                android:id="@+id/main_title"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@id/refresh"
-                android:layout_margin="5dp"
-                android:background="#0fff"
-                android:gravity="center"
-                android:text="桌面接单状态列表"
-                android:textColor="#00a2e9" />
-
-            <ListView
-                android:id="@+id/android:list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/main_title"/>
+        <RelativeLayout
+            android:id="@+id/rl_table_gridView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1000"
+            android:padding="5dp"
+            android:layout_marginBottom="50dp"
+            android:layout_below="@id/mainListRLo2">
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/sw_ly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <GridView
+                    android:id="@+id/gv_table_gridView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:horizontalSpacing="5px"
+                    android:numColumns="2"
+                    android:verticalSpacing="5px" />
+            </android.support.v4.widget.SwipeRefreshLayout>
         </RelativeLayout>
 
         <RelativeLayout

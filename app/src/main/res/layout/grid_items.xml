@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/rl_whole"
+    android:layout_margin="20dp"
+    android:padding="10dp"
+    android:background="@drawable/pswback"
+    android:gravity="center">
+
+    <www.xinkui.com.restaurant.ui.TableView
+        android:id="@+id/tableview"
+        android:layout_width="50px"
+        android:layout_below="@id/iv_customers"
+        android:layout_height="50px"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:id="@+id/tv_grid_num"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_alignBottom="@id/tableview"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:layout_toRightOf="@id/tableview" />
+
+    <ImageView
+        android:id="@+id/iv_customers"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/desk" />
+    <ImageView
+        android:id="@+id/iv_raisehand"
+        android:layout_toRightOf="@id/iv_customers"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/raise_hands" />
+    <ImageView
+        android:id="@+id/iv_look_up_menu"
+        android:layout_toRightOf="@id/iv_customers"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/look_up_menu" />
+    <ImageView
+        android:id="@+id/iv_eating"
+        android:layout_toRightOf="@id/iv_customers"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/eating" />
+    <ImageView
+        android:id="@+id/iv_chair"
+        android:layout_toRightOf="@id/iv_customers"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/chair" />
+</RelativeLayout>

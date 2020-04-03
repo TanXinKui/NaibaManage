@@ -11,6 +11,7 @@
         <RelativeLayout
             android:id="@+id/dishmanage_0_1"
             android:layout_width="match_parent"
+            android:background="#1000"
             android:layout_height="wrap_content">
 
             <TextView
@@ -21,24 +22,29 @@
                 android:gravity="center"
                 android:text="菜单列表"
                 android:textColor="#fff" />
-
-            <ListView
-                android:id="@+id/android:list"
+            <!--<ListView-->
+                <!--android:id="@+id/android:list"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@id/dishmanage_title"></ListView>-->
+            <GridView
+                android:id="@+id/dish_gridView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/dishmanage_title">
-
-            </ListView>
+                android:verticalSpacing="2px"
+                android:horizontalSpacing="3px"
+                android:numColumns="3"
+                android:layout_below="@id/addSpecial" />
 
             <Button
                 android:id="@+id/addSpecial"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_below="@+id/android:list"
+                android:layout_below="@id/dishmanage_title"
                 android:layout_marginTop="5dp"
-                android:background="#00a2e9"
+                android:background="@drawable/pswback2"
                 android:text="进入滚动栏菜单"
-                android:textColor="#fff" />
+                android:textColor="#00a2e9" />
         </RelativeLayout>
 
         <RelativeLayout
